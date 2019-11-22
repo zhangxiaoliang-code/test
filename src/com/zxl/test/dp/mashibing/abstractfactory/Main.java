@@ -3,7 +3,7 @@ package com.zxl.test.dp.mashibing.abstractfactory;
 public class Main {
 
 	public static void main(String[] args) {
-		AbstractFactory f = new MagicFactory();
+		AbstractFactory f = new ModernFactory();
 		
 		Vehicle c = f.createVehicle();
 		c.go();
