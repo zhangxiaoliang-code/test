@@ -1,5 +1,7 @@
 package com.zxl.test.dp.mashibing.abstractfactory;
 
+import java.lang.reflect.Proxy;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -13,5 +15,7 @@ public class Main {
 		
 		Food b = f.createFood();
 		b.printName();
+		
+//		Proxy.newProxyInstance(loader, y, h)
 	}
 }
