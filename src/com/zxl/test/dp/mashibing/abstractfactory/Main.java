@@ -1,5 +1,6 @@
 package com.zxl.test.dp.mashibing.abstractfactory;
 
+import java.awt.Frame;
 import java.lang.reflect.Proxy;
 
 public class Main {
@@ -15,6 +16,10 @@ public class Main {
 		
 		Food b = f.createFood();
 		b.printName();
+		
+		System.out.println(5 != 5);
+		
+		Frame frame = new Frame();
 		
 //		Proxy.newProxyInstance(loader, y, h)
 	}
