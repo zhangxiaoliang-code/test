@@ -2,8 +2,6 @@ package com.zxl.test.jvm.shudaizi.classloader2;
 
 import java.lang.reflect.Constructor;
 
-import com.zxl.test.Student;
-
 public class MyTest2 {
 
 	public static void main(String[] args) throws Exception {

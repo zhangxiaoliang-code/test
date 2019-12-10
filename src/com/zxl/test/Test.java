@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Test {
 	
@@ -45,7 +48,7 @@ public class Test {
 		
 //		System.arraycopy(src, srcPos, dest, destPos, length);
 		
-		List<Student> list1 = new ArrayList<Student>();
+		/*List<Student> list1 = new ArrayList<Student>();
 		Student s1 = new Student(1, "张三", 19, null);
 		Student s2 = new Student(2, "李四", 20, null);
 		Student s3 = new Student(3, "王五", 21, null);
@@ -83,7 +86,60 @@ public class Test {
 		for(Integer key: map.keySet()) {
 			Student ss = map.get(key);
 			System.out.println("id:"+ss.getId()+" name: "+ss.getName()+" age: "+ss.getAge()+" other: "+ss.getOther());
+		}*/
+		
+		System.out.println(24L * 3600 * 1000);
+		
+		System.out.println(TimeZone.getDefault().getRawOffset());
+	}
+	
+	
+	
+	private static final class MillisTimerTask implements Runnable {
+
+		/**
+		 * 一天 24 小时有多少毫秒
+		 */
+		private static final long MILLIS_IN_DAY = 24L * 3600 * 1000;
+		
+		/**
+		 * 系统默认时区的偏移毫秒值
+		 */
+		private final int TIME_ZONE_OFFSET = TimeZone.getDefault().getRawOffset();
+		
+		/**
+		 * 当前毫秒时间
+		 */
+		private final AtomicLong current;
+		
+		/**
+		 * 自 1970 年至当前时间过去了多少天
+		 */
+		private final AtomicInteger oldUnixDays;
+		
+		/**
+		 * 当前计算压缩的日期
+		 */
+		private final AtomicInteger compressedDay;
+		
+		
+		
+		private MillisTimerTask() {
+			this.current = new AtomicLong(System.currentTimeMillis());
+			this.oldUnixDays = new AtomicInteger();
+			this.compressedDay = new AtomicInteger();
 		}
+		
+		private static long mask(long num, long mask, long multi) {
+			return (num & Long.MAX_VALUE) % mask * multi;
+		}
+		
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 
 }
@@ -137,5 +193,5 @@ class Student {
 		this.age = age;
 		this.other = other;
 	}
-	
 }
+
