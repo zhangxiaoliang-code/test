@@ -91,6 +91,10 @@ public class Test {
 		System.out.println(24L * 3600 * 1000);
 		
 		System.out.println(TimeZone.getDefault().getRawOffset());
+		
+		StringBuilder sb = new StringBuilder("abc");
+		sb.append("d");
+		System.out.println(sb.toString());
 	}
 	
 	
