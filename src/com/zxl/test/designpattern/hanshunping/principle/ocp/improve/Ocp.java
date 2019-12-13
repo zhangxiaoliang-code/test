@@ -1,7 +1,8 @@
-package com.zxl.test.designpattern.hanshunping.principle.Ocp;
+package com.zxl.test.designpattern.hanshunping.principle.ocp.improve;
+
 
 /**
- * 开闭原则1
+ * 开闭原则2
  *
  */
 public class Ocp {
@@ -19,34 +20,24 @@ public class Ocp {
 class GraphicEditor {
 	//接收Shape对象，然后根据type，来绘制不同的图形
 	public void drawShape(Shape s) {
-		if(s.type == 1)
-			drawRectangle(s);
-		else if(s.type == 2)
-			drawCircle(s);
-		else if(s.type == 3)
-			drawTriangle(s);
-	}
-	
-	public void drawRectangle(Shape s) {
-		System.out.println(" 绘制矩形 ");
-	}
-	
-	public void drawCircle(Shape s) {
-		System.out.println(" 绘制圆形 ");
-	}
-	
-	public void drawTriangle(Shape s) {
-		System.out.println(" 绘制三角形 ");
+		s.draw();
 	}
 }
 
-class Shape {
+// Shape类 基类
+abstract class Shape {
 	int type;
+	
+	abstract void draw();
 }
 
 class Rectangle extends Shape{
 	Rectangle(){
 		super.type = 1;
+	}
+	
+	public void draw() {
+		System.out.println(" 绘制矩形 ");
 	}
 }
 
@@ -54,10 +45,18 @@ class Circle extends Shape{
 	Circle(){
 		super.type = 2;
 	}
+	
+	public void draw() {
+		System.out.println(" 绘制圆形 ");
+	}
 }
 
 class Triangle extends Shape{
 	Triangle(){
 		super.type = 3;
+	}
+	
+	public void draw() {
+		System.out.println(" 绘制三角形 ");
 	}
 }
