@@ -233,6 +233,8 @@
                         例如：StaticDispatch.java
 
                     3.方法重载优先级匹配
+                        例如：ReloadPriority.java
+
 
 
 
