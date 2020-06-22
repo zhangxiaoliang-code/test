@@ -18,7 +18,7 @@ public class SingletonTest08 {
 
 /**
  * 枚举
- *
+ * 不仅可以解决线程同步问题，还可以防止反序列化
  */
 enum Singleton{
 	INSTANCE;

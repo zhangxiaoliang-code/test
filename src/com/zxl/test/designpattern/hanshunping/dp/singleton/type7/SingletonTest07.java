@@ -16,6 +16,8 @@ public class SingletonTest07 {
 
 /**
  * 静态内部类
+ * JVM保证单例
+ * 加载外部类时不会加载内部类，这样可以实现懒汉
  *
  */
 class Singleton{

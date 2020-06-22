@@ -21,6 +21,9 @@ public class SingletonTest06 {
  * 2.类的内部创建对象
  * 3.向外暴露一个公共静态方法
  *
+ * 虽然达到了按需初始化目的，但却带来了线程不安全的问题
+ * 可以通过synchronized解决，但也带来了效率下降
+ *
  */
 class Singleton {
 	

@@ -1,9 +1,10 @@
 package com.zxl.test.designpattern.my.dynamicproxy;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 public class TestProxy {
-    @Test
+
+//    @Test
     public void testDynadicProxy() {
         UserDao userDao = new IUserDao();
         System.out.println(userDao.getClass()); //输出目标对象信息

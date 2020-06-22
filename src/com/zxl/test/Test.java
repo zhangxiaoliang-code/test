@@ -1,16 +1,86 @@
 package com.zxl.test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Test {
+
+	static final int hash(Object key) {
+		int h;
+		return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+	}
+
+    private static HashMap<Integer, Integer> map = new HashMap<Integer, Integer>(2, 0.75f);
 	
 	public static void main(String[] args) {
+
+		String[] s = {"a","a","b","c","d","e","f","f","f"};
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		int temp = 1;
+		Integer value;
+		for (int i = 0; i < s.length; i++) {
+			String key = s[i];
+			if(!"".equals(value = map.get(key)) && null != value){
+				value += temp;
+			}else{
+				value = temp;
+			}
+			map.put(key, value);
+		}
+
+		for(int i = 0; i < s.length; i++){
+
+		}
+
+		System.out.println(map);
+
+	    /*map.put(5, 55);
+
+	    new Thread("thread1"){
+	        public void run(){
+	             map.put(7, 77);
+                System.out.println(map);
+            }
+        }.start();
+
+	    new Thread("thread2"){
+	        public void run (){
+	            map.put(3, 33);
+                System.out.println(map);
+            }
+        }.start();
+
+        System.out.println(Integer.highestOneBit(10));
+        System.out.println(Integer.highestOneBit(15));
+        System.out.println(Integer.highestOneBit(16));
+
+
+        ConcurrentHashMap hashMap = new ConcurrentHashMap();
+
+        List list = new ArrayList();*/
+
+
+		/*int a;
+		System.out.println(Test.hash("zxll"));
+		System.out.println("zxl".hashCode());
+		System.out.println("a".hashCode()^"a".hashCode() >>> 16);
+		System.out.println(1<<30);
+		System.out.println((int)'a');*/
+
+//		System.out.println((int)'y');
+
+//		Map linkMap = new LinkedHashMap();
+//		Map map = new HashMap();
+//		map.put(null,1);
+//		map.put(null,2);
+//		System.out.println(map.get(null));
+//		map.put("a",null);
+//		map.put("b",null);
+//		System.out.println(map.get("a"));
+//		System.out.println(map.get("b"));
+
 		//再试一次修改更新
 		/*List<String> list1 = new ArrayList<String>();
 		list1.add("A");
@@ -88,13 +158,13 @@ public class Test {
 			System.out.println("id:"+ss.getId()+" name: "+ss.getName()+" age: "+ss.getAge()+" other: "+ss.getOther());
 		}*/
 		
-		System.out.println(24L * 3600 * 1000);
-		
-		System.out.println(TimeZone.getDefault().getRawOffset());
-		
-		StringBuilder sb = new StringBuilder("abc");
-		sb.append("d");
-		System.out.println(sb.toString());
+//		System.out.println(24L * 3600 * 1000);
+//
+//		System.out.println(TimeZone.getDefault().getRawOffset());
+//
+//		StringBuilder sb = new StringBuilder("abc");
+//		sb.append("d");
+//		System.out.println(sb.toString());
 	}
 	
 	
